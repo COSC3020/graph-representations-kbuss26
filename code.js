@@ -15,7 +15,7 @@ function convertToAdjList(adjMatrix) {
     for (var i = 0; i < (adjMatrix.length) ** 2; i++) {
         // Get value for position
         edgeExists = adjMatrix[Math.floor(i / adjMatrix.length)][i % adjMatrix.length];
-        if (edgeExists) edgeList.push((i % adjMatrix.length) + 1); // Stores edge position in list if non-zero
+        if (edgeExists) edgeList.push(i % adjMatrix.length); // Stores edge position in list if non-zero
         if ((i + 1) % adjMatrix.length === 0) {
             // Resets if reaches end of first matrix row
             adjList.push(edgeList);
