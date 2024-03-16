@@ -1,8 +1,9 @@
 /*
     Keifer Buss 
     COSC-3020-01 
-    Last modified Mar. 01 2024
-    Sources: None for this program
+    Last modified Mar. 15 2024
+    Sources:
+    - https://www.scaler.com/topics/javascript-copy-array/
 */
 
 function convertToAdjList(adjMatrix) {
@@ -24,4 +25,29 @@ function convertToAdjList(adjMatrix) {
     }
     
     return adjList;
+}
+
+function convertToAdjMatrix(adjList) {
+    // Variable declarations
+    var adjMatrix = [];
+    var initArray = [];
+    var tempPos = 0;
+
+    // Matrix initialization
+    for(var i = 0; i < adjList.length; i++) {
+        initArray.push(0);
+    }
+    for(var i = 0; i < adjList.length; i++) {
+        adjMatrix.push(initArray.slice()); // Slice function to avoid pushing the same reference
+    }
+
+    // Iterates through each edge in each vertice, basic conversion algorithm
+    for(var i = 0; i < adjList.length; i++) {
+        for(var j = 0; j < adjList[i].length; j++) {
+            tempPos = adjList[i][j];
+            adjMatrix[i][tempPos] = 1;
+        }
+    }
+
+    return adjMatrix;
 }
